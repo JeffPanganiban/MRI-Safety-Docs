@@ -68,7 +68,7 @@ export default function ComingSoonLanding() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-800 to-indigo-900 text-white flex flex-col">
       {/* Decorative elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
@@ -76,24 +76,28 @@ export default function ComingSoonLanding() {
         <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
       </div>
       {/* Navigation */}
-      <nav className="w-full py-6 px-4 sm:px-6 lg:px-8 backdrop-blur-md bg-white/80 fixed top-0 z-50 shadow-sm">
+      <nav className="w-full py-6 px-4 sm:px-6 lg:px-8 bg-transparent fixed top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md">
+            <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg">M</span>
             </div>
-            <span className="font-semibold text-xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="font-semibold text-xl text-white ">
               MRI Safety Docs
             </span>
           </div>
           <div className="hidden md:flex items-center">
-            <Button className="rounded-full px-8 py-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md transition-all duration-300 hover:shadow-lg">
+            <Button className="rounded-full px-8 py-6 bg-gradient-to-r from-blue-500/80 to-indigo-500/80 hover:from-blue-600/90 hover:to-indigo-600/90 shadow-md transition-all duration-300 hover:shadow-lg backdrop-blur-sm">
               <span className="flex items-center font-medium">
                 Join Waitlist
               </span>
             </Button>
           </div>
-          <Button variant="ghost" className="md:hidden" size="icon">
+          <Button
+            variant="ghost"
+            className="md:hidden text-white hover:bg-blue-800/20"
+            size="icon"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -125,7 +129,7 @@ export default function ComingSoonLanding() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 shadow-sm"
+                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-500/30 to-indigo-500/30 text-blue-100 shadow-sm"
               >
                 <span className="animate-pulse mr-2">●</span>
                 <span>Coming Soon</span>
@@ -148,7 +152,7 @@ export default function ComingSoonLanding() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-xl text-gray-600 max-w-lg leading-relaxed"
+                className="text-xl text-gray-300 max-w-lg leading-relaxed"
               >
                 No more sifting through binders and confusing manufacturer
                 websites. Find the MRI safety details you need in seconds.
@@ -168,7 +172,7 @@ export default function ComingSoonLanding() {
                     <Input
                       type="email"
                       placeholder="Enter your email for early access"
-                      className={`h-14 pl-4 pr-4 rounded-full text-base shadow-sm border-blue-100 ${error ? "border-red-500 focus-visible:ring-red-500" : "focus-visible:ring-blue-500"}`}
+                      className={`h-14 pl-4 pr-4 rounded-full text-base shadow-sm bg-slate-700 border-blue-500 text-white ${error ? "border-red-500 focus-visible:ring-red-500" : "focus-visible:ring-blue-500"}`}
                       value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
@@ -222,9 +226,9 @@ export default function ComingSoonLanding() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative hidden md:block"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-lg opacity-30"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl blur-lg opacity-50"></div>
               <div
-                className="relative bg-white rounded-3xl shadow-xl overflow-visible border border-blue-100"
+                className="relative bg-slate-800 rounded-3xl shadow-xl overflow-visible border border-blue-500"
                 style={{ height: "400px" }}
               >
                 {/* Atom Animation - Full Space */}
@@ -349,7 +353,7 @@ export default function ComingSoonLanding() {
                       <TriangleAlert size={16} />
                     </div>
                     <div>
-                      <span className="text-sm font-medium block">
+                      <span className="text-sm text-black font-medium block">
                         MR Conditional
                       </span>
                     </div>
@@ -364,7 +368,9 @@ export default function ComingSoonLanding() {
                       <Check size={16} />
                     </div>
                     <div>
-                      <span className="text-sm font-medium block">MR Safe</span>
+                      <span className="text-sm text-black font-medium block">
+                        MR Safe
+                      </span>
                     </div>
                   </motion.div>
                 </div>
