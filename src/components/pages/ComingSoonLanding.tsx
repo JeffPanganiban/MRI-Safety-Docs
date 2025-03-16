@@ -76,10 +76,9 @@ export default function ComingSoonLanding() {
           </Button>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex-grow flex items-center">
-        <div className="max-w-7xl mx-auto w-full">
+        <div className="max-w-7xl mx-auto w-full flex">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -94,13 +93,13 @@ export default function ComingSoonLanding() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
-                MRI Safety Information
-                <span className="text-blue-600"> Simplified</span>
+                Stop <span className="text-blue-600">wasting time</span>{" "}
+                searching for MRI safety information
               </h1>
 
               <p className="text-xl text-gray-600 max-w-lg">
-                The most comprehensive database for MRI technicians to quickly
-                access safety information for medical devices.
+                No more sifting through binders and confusing manufacturer
+                websites. Find the MRI safety details you need in seconds.
               </p>
 
               <div className="pt-4">
@@ -111,7 +110,7 @@ export default function ComingSoonLanding() {
                   <div className="flex-grow relative">
                     <Input
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="Get early access."
                       className={`h-12 pl-12 pr-4 rounded-full text-base ${error ? "border-red-500 focus-visible:ring-red-500" : ""}`}
                       value={email}
                       onChange={(e) => {
@@ -152,9 +151,6 @@ export default function ComingSoonLanding() {
                     Thank you! We'll notify you when we launch.
                   </motion.p>
                 )}
-                <p className="text-sm text-gray-500 mt-3 ml-4">
-                  Join 2,000+ healthcare professionals on our waitlist
-                </p>
               </div>
             </motion.div>
 
@@ -181,7 +177,6 @@ export default function ComingSoonLanding() {
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -277,7 +272,6 @@ export default function ComingSoonLanding() {
           </div>
         </div>
       </section>
-
       {/* Testimonials */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -343,7 +337,6 @@ export default function ComingSoonLanding() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section
         id="contact"
@@ -440,7 +433,6 @@ export default function ComingSoonLanding() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 text-gray-400">
         <div className="max-w-7xl mx-auto">
