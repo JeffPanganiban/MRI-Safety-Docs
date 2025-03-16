@@ -5,6 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/tempo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MRI Safety Database</title>
+    <script>
+      // Debugging script to help identify client-side errors
+      window.onerror = function (message, source, lineno, colno, error) {
+        document.body.innerHTML +=
+          '<div style="color:red; padding:20px;">Error: ' + message + "</div>";
+        return false;
+      };
+    </script>
   </head>
 
   <body>
