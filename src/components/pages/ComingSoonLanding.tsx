@@ -11,16 +11,20 @@ import {
   Clock,
   TriangleAlert,
 } from "lucide-react";
+import { addToWaitlist } from "@/lib/waitlist";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function ComingSoonLanding() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) {
-      setError("Ger early access");
+      setError("Please enter your email address");
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -28,10 +32,39 @@ export default function ComingSoonLanding() {
       return;
     }
 
-    // In a real app, you would send this to your backend
-    console.log("Email submitted:", email);
-    setSubmitted(true);
-    setError("");
+    setIsSubmitting(true);
+
+    try {
+      const result = await addToWaitlist(email);
+
+      if (result.success) {
+        setSubmitted(true);
+        setError("");
+        toast({
+          title: "Success!",
+          description: result.message || "You've been added to our waitlist.",
+          variant: "default",
+        });
+      } else {
+        setError(result.message || "Something went wrong. Please try again.");
+        toast({
+          title: "Error",
+          description:
+            result.message || "Failed to join waitlist. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (err) {
+      console.error("Waitlist submission error:", err);
+      setError("Something went wrong. Please try again.");
+      toast({
+        title: "Error",
+        description: "Failed to join waitlist. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -179,12 +212,17 @@ export default function ComingSoonLanding() {
                   <Button
                     type="submit"
                     className="h-14 rounded-full px-8 font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md transition-all duration-300 hover:shadow-lg"
-                    disabled={submitted}
+                    disabled={submitted || isSubmitting}
                   >
                     {submitted ? (
                       <span className="flex items-center">
                         <Check className="mr-2 h-5 w-5" />
                         Subscribed
+                      </span>
+                    ) : isSubmitting ? (
+                      <span className="flex items-center">
+                        <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                        Joining...
                       </span>
                     ) : (
                       <span className="flex items-center">
