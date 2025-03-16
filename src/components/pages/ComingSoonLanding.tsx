@@ -132,7 +132,6 @@ export default function ComingSoonLanding() {
                 <div className="w-1 h-1 rounded-full bg-blue-800 mx-2"></div>
                 <span>Join the Waitlist</span>
               </motion.div>
-
               <motion.h1
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -145,7 +144,6 @@ export default function ComingSoonLanding() {
                 </span>{" "}
                 searching for MRI safety information
               </motion.h1>
-
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -155,32 +153,6 @@ export default function ComingSoonLanding() {
                 No more sifting through binders and confusing manufacturer
                 websites. Find the MRI safety details you need in seconds.
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-wrap gap-6 mt-2"
-              >
-                <div className="flex items-center">
-                  <div className="mr-3 p-2 rounded-full bg-blue-100 text-blue-600">
-                    <Search size={18} />
-                  </div>
-                  <span className="text-gray-700">Instant search</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="mr-3 p-2 rounded-full bg-blue-100 text-blue-600">
-                    <Shield size={18} />
-                  </div>
-                  <span className="text-gray-700">Verified data</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="mr-3 p-2 rounded-full bg-blue-100 text-blue-600">
-                    <Clock size={18} />
-                  </div>
-                  <span className="text-gray-700">Save time</span>
-                </div>
-              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -251,48 +223,152 @@ export default function ComingSoonLanding() {
               className="relative hidden md:block"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-lg opacity-30"></div>
-              <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-blue-100">
-                <div className="p-3">
-                  <img
-                    src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80"
-                    alt="MRI Safety App Interface"
-                    className="rounded-2xl w-full h-auto shadow-sm"
-                  />
+              <div
+                className="relative bg-white rounded-3xl shadow-xl overflow-visible border border-blue-100"
+                style={{ height: "400px" }}
+              >
+                {/* Atom Animation - Full Space */}
+                <div
+                  className="relative h-full w-full overflow-visible bg-gradient-to-br from-blue-900 to-indigo-900 shadow-inner rounded-3xl"
+                  style={{ minHeight: "400px" }}
+                >
+                  {/* Nucleus */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      className="w-24 h-24 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full shadow-lg relative overflow-hidden"
+                      animate={{
+                        boxShadow: [
+                          "0 0 15px 4px rgba(59, 130, 246, 0.5)",
+                          "0 0 30px 8px rgba(59, 130, 246, 0.7)",
+                          "0 0 15px 4px rgba(59, 130, 246, 0.5)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      {/* Inner nucleus glow */}
+                      <motion.div
+                        className="absolute inset-1 rounded-full bg-white opacity-50"
+                        animate={{ opacity: [0.3, 0.7, 0.3] }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    </motion.div>
+                  </div>
+
+                  {/* Electron Orbits */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {/* First Orbit */}
+                    <motion.div
+                      className="absolute w-48 h-48 border-2 border-blue-300 rounded-full opacity-70"
+                      animate={{ rotate: 360 }}
+                      transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      style={{ borderStyle: "dashed" }}
+                    >
+                      {/* Electron 1 */}
+                      <motion.div
+                        className="absolute w-5 h-5 bg-blue-400 rounded-full shadow-md"
+                        style={{ top: "calc(50% - 10px)", left: "-10px" }}
+                        animate={{
+                          boxShadow: "0 0 10px 3px rgba(59, 130, 246, 0.7)",
+                        }}
+                      />
+                    </motion.div>
+
+                    {/* Second Orbit */}
+                    <motion.div
+                      className="absolute w-72 h-60 border-2 border-indigo-300 rounded-full opacity-70"
+                      animate={{ rotate: -360 }}
+                      transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      style={{ borderStyle: "dashed" }}
+                    >
+                      {/* Electron 2 */}
+                      <motion.div
+                        className="absolute w-4 h-4 bg-indigo-400 rounded-full shadow-md"
+                        style={{ top: "calc(50% - 8px)", right: "-8px" }}
+                        animate={{
+                          boxShadow: "0 0 10px 3px rgba(99, 102, 241, 0.7)",
+                        }}
+                      />
+                    </motion.div>
+
+                    {/* Third Orbit - Tilted */}
+                    <motion.div
+                      className="absolute w-64 h-64 border-2 border-purple-300 rounded-full opacity-70"
+                      animate={{ rotate: 360 }}
+                      transition={{
+                        duration: 12,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      style={{
+                        borderStyle: "dashed",
+                        transform: "rotateX(60deg)",
+                      }}
+                    >
+                      {/* Electron 3 */}
+                      <motion.div
+                        className="absolute w-4 h-4 bg-purple-400 rounded-full shadow-md"
+                        style={{
+                          top: "calc(50% - 8px)",
+                          left: "calc(50% - 8px)",
+                        }}
+                        animate={{
+                          left: ["0%", "100%", "0%"],
+                          top: ["50%", "50%", "50%"],
+                        }}
+                        transition={{
+                          duration: 6,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      />
+                    </motion.div>
+                  </div>
+
+                  {/* MR Conditional - Positioned at top left edge */}
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    className="absolute top-6 -left-6 bg-gradient-to-r from-white to-yellow-50 p-3 rounded-2xl shadow-lg flex items-center space-x-3 border border-yellow-200 hover:shadow-md transition-shadow duration-300 z-50 overflow-visible"
+                  >
+                    <div className="p-2 bg-yellow-100 rounded-full text-yellow-600 shadow-inner">
+                      <TriangleAlert size={16} />
+                    </div>
+                    <div>
+                      <span className="text-sm font-medium block">
+                        MR Conditional
+                      </span>
+                    </div>
+                  </motion.div>
+
+                  {/* MR Safe - Positioned at bottom left edge */}
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    className="absolute bottom-14 -right-6 bg-gradient-to-r from-white to-green-50 p-3 rounded-2xl shadow-lg flex items-center space-x-3 border border-green-200 hover:shadow-md transition-shadow duration-300 z-50 overflow-visible"
+                  >
+                    <div className="p-2 bg-green-100 rounded-full text-green-600 shadow-inner">
+                      <Check size={16} />
+                    </div>
+                    <div>
+                      <span className="text-sm font-medium block">MR Safe</span>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -bottom-8 -right-8 w-28 h-28 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg"
-              >
-                Beta
-              </motion.div>
-
-              {/* Floating elements */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -left-10 top-1/4 bg-white p-4 rounded-xl shadow-lg flex items-center space-x-3 border border-blue-100"
-              >
-                <div className="p-2 bg-yellow-100 rounded-full text-yellow-600">
-                  <TriangleAlert size={16} />
-                </div>
-                <span className="text-sm font-medium">MR Conditional</span>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-                className="absolute -right-6 bottom-1/3 bg-white p-4 rounded-xl shadow-lg flex items-center space-x-3 border border-blue-100"
-              >
-                <div className="p-2 bg-green-100 rounded-full text-green-600">
-                  <Check size={16} />
-                </div>
-                <span className="text-sm font-medium">MR Safe</span>
-              </motion.div>
             </motion.div>
           </div>
         </div>
