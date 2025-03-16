@@ -92,7 +92,25 @@ function AppRoutes() {
   );
 }
 
+import { isSupabaseConfigured } from "../supabase/supabase";
+
 function App() {
+  // Check if Supabase is configured
+  if (!isSupabaseConfigured()) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
+        <h1 className="mb-4 text-2xl font-bold">Configuration Error</h1>
+        <p className="mb-6">
+          Supabase environment variables are not properly configured.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Please ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set in
+          your environment.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <AuthProvider>
       <Suspense fallback={<LoadingScreen text="Loading application..." />}>
